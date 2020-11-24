@@ -1,0 +1,18 @@
+{
+  "name": "serializers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "onchange '../proto/*.proto' -- npm run build",
+    "build": "npm run build-static-js && npm run build-ts",
+    "build-static-js": "pbjs -t static-module ../proto/*.proto > serializers.js",
+    "build-ts": "pbts --no-comments -o serializers.d.ts serializers.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "protobufjs": "^6.10.2"
+  }
+}
