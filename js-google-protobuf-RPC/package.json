@@ -1,0 +1,26 @@
+{
+  "name": "js-google-protobuf-RPC",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "server": "npm run build-static && nodemon ./server/index.js",
+    "proxy": "envoy -c ./envoy.yaml",
+    "client": "npm run build-static && parcel ./client/index.html --port=3000",
+    "watch": "onchange './proto/*.proto' -- npm run build-static",
+    "build-static": "/bin/bash ./gen-proto.sh"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.2.1",
+    "@grpc/proto-loader": "^0.5.5",
+    "google-protobuf": "^3.14.0",
+    "grpc": "^1.24.4",
+    "grpc-tools": "^1.10.0",
+    "grpc-web": "^1.2.1",
+    "parcel": "^1.12.4",
+    "protoc-gen-grpc-web": "^1.2.0"
+  }
+}
